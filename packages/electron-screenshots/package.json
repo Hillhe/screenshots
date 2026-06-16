@@ -1,6 +1,6 @@
 {
   "name": "electron-screenshots",
-  "version": "0.6.1",
+  "version": "0.6.1-patch.1",
   "description": "electron 截图插件",
   "types": "lib/index.d.ts",
   "main": "lib/index.cjs.js",
@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/nashaofu/screenshots/tree/master/packages/electron-screenshots#readme",
   "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://10.200.81.78:28081/repository/npm-hosted/"
   },
   "dependencies": {
     "debug": "^4.4.3",

@@ -5,10 +5,11 @@ export interface Display extends Rectangle {
   scaleFactor: number;
 }
 
-export default (): Display => {
-  const point = screen.getCursorScreenPoint();
-  const { id, bounds, scaleFactor } = screen.getDisplayNearestPoint(point);
-
+const normalizeDisplay = ({
+  id,
+  bounds,
+  scaleFactor,
+}: Electron.Display): Display => {
   // https://github.com/nashaofu/screenshots/issues/98
   return {
     id,
@@ -18,4 +19,12 @@ export default (): Display => {
     height: Math.floor(bounds.height),
     scaleFactor,
   };
+};
+
+export const getDisplays = (): Display[] =>
+  screen.getAllDisplays().map(normalizeDisplay);
+
+export default (): Display => {
+  const point = screen.getCursorScreenPoint();
+  return normalizeDisplay(screen.getDisplayNearestPoint(point));
 };
